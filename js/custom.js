@@ -205,6 +205,33 @@ const instagram_post_slide = new Swiper(".instagram_post_slide", {
 });
 
 
+const testimonial_slider = new Swiper(".testimonial_slider", {
+    speed: 3000,
+    autoplay: {
+        delay: 3000,
+    },
+    draggable: false,
+    loop: 'true',
+    slidesPerView: 3,
+    centeredSlides: true,
+
+    navigation: {
+        nextEl: ".testimonial_slider_next",
+        prevEl: ".testimonial_slider_prev"
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 30
+        },
+        991: {
+            slidesPerView: 3,
+            spaceBetween: 30
+        },
+    },
+});
+
+
 var swiper = new Swiper(".mobile_hero_slider_thumb", {
     loop: true,
     spaceBetween: 10,
