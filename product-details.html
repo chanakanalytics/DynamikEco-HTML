@@ -192,11 +192,7 @@
                                     </h2>
                                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
                                         <div class="accordion-body">
-                                            <div class="slider-container">
-                                                <input type="range" min="0" max="100" value="50" class="slider"
-                                                    id="myRange">
-                                                <p>Value: <span id="sliderValue"></span></p>
-                                            </div>
+                                            Range Slider here
                                         </div>
                                     </div>
                                 </div>
@@ -474,16 +470,6 @@
 <script type="application/javascript" src="js/bootstrap-better-nav.js"></script>
 <script type="application/javascript" src="js/custom.js"></script>
 
-<script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("sliderValue");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function () {
-        output.innerHTML = this.value;
-    }
-
-</script>
 
 
 </html>

@@ -1,93 +1,88 @@
 $(function () {
+  var body = $("body");
+  var navbar = $(".navbar");
+  var navbarCollapse = $(".navbar-collapse");
 
-    var body = $('body');
-    var navbar = $('.navbar');
-    var navbarCollapse = $('.navbar-collapse');
+  // Add the needed HTML elements for the plugin to work.
+  // All the elements are styled in navbar-sidemnu.css.
 
+  body.append('<div class="side-menu-overlay"></div>');
+  var overlay = $(".side-menu-overlay");
 
+  body.append('<div id="side-menu"></div>');
+  var sideMenu = $("#side-menu");
 
-    // Add the needed HTML elements for the plugin to work. 
-    // All the elements are styled in navbar-sidemnu.css.
+  sideMenu.append(
+    '<div class="mobile_menu_header"><img class="mobile_menu_logo" src="img/footer_logo.png"/><button class="close"> <i class="fa-solid fa-circle-xmark"></i></button></div>'
+  );
+  var sideMenuCloseBtn = sideMenu.find(".close");
 
-    body.append('<div class="side-menu-overlay"></div>');
-    var overlay = $('.side-menu-overlay');
+  sideMenu.append('<div class="contents"></div>');
+  var sideMenuContents = sideMenu.find(".contents");
+  sideMenu.append('<span class="sidebar_stamp">DynamicEco</span>');
+  var sideMenuContents = sideMenu.find(".contents");
 
-    body.append('<div id="side-menu"></div>');
-    var sideMenu = $('#side-menu');
+  // Configure Slide menu direction
+  if (navbar.hasClass("better-bootstrap-nav-left")) {
+    sideMenu.addClass("side-menu-left");
+  }
 
-    sideMenu.append('<div class="mobile_menu_header"><img class="mobile_menu_logo" src="img/footer_logo.png"/><button class="close"> <img src="img/menu-close.png" /></button></div>')
-    var sideMenuCloseBtn = sideMenu.find('.close');
+  // This event is trigerred when the user clicks the navbar toggle button.
 
-    sideMenu.append('<div class="contents"></div>')
-    var sideMenuContents = sideMenu.find('.contents');
-    sideMenu.append('<span class="sidebar_stamp">DynamicEco</span>')
-    var sideMenuContents = sideMenu.find('.contents');
+  navbarCollapse.on("show.bs.collapse", function (e) {
+    // Stop the default navbar behaviour (don't open the collapse navigation).
+    e.preventDefault();
 
+    // Instead we copy the navbar contents and add them to our side menu.
+    var menuContent = $(this).html();
+    sideMenuContents.html(menuContent);
 
+    // Animate the side menu into frame.
+    slideIn();
+  });
 
-    // Configure Slide menu direction
-    if (navbar.hasClass('better-bootstrap-nav-left')) {
-        sideMenu.addClass('side-menu-left');
+  // Hide the menu when the "x" button is clicked.
+
+  sideMenuCloseBtn.on("click", function (e) {
+    e.preventDefault();
+    slideOut();
+  });
+
+  // Hide the menu when the overlay element is clicked.
+
+  overlay.on("click", function (e) {
+    slideOut();
+  });
+
+  // Listen for changes in the viewport size.
+  // If the original navbar collapse is visible then the nav is expanded.
+  // Hide/Show the menu accordingly.
+
+  $(window).resize(function () {
+    if (!navbarCollapse.is(":visible") && body.hasClass("side-menu-visible")) {
+      sideMenu.show();
+      overlay.show();
+    } else {
+      sideMenu.hide();
+      overlay.hide();
     }
+  });
 
+  function slideIn() {
+    body.addClass("overflow-hidden");
+    sideMenu.show();
+    setTimeout(function () {
+      body.addClass("side-menu-visible");
+      overlay.fadeIn();
+    }, 50);
+  }
 
-    // This event is trigerred when the user clicks the navbar toggle button.
-
-    navbarCollapse.on('show.bs.collapse', function (e) {
-        // Stop the default navbar behaviour (don't open the collapse navigation).
-        e.preventDefault();
-
-        // Instead we copy the navbar contents and add them to our side menu.
-        var menuContent = $(this).html();
-        sideMenuContents.html(menuContent);
-
-        // Animate the side menu into frame.
-        slideIn();
-    });
-
-
-    // Hide the menu when the "x" button is clicked.
-
-    sideMenuCloseBtn.on('click', function (e) {
-        e.preventDefault();
-        slideOut();
-    });
-
-    // Hide the menu when the overlay element is clicked.
-
-    overlay.on('click', function (e) {
-        slideOut();
-    });
-
-    // Listen for changes in the viewport size.
-    // If the original navbar collapse is visible then the nav is expanded.
-    // Hide/Show the menu accordingly.
-
-    $(window).resize(function () {
-        if (!navbarCollapse.is(":visible") && body.hasClass('side-menu-visible')) {
-            sideMenu.show();
-            overlay.show();
-        } else {
-            sideMenu.hide();
-            overlay.hide();
-        }
-    });
-
-    function slideIn() {
-        body.addClass('overflow-hidden');
-        sideMenu.show();
-        setTimeout(function () {
-            body.addClass('side-menu-visible');
-            overlay.fadeIn();
-        }, 50);
-    }
-
-    function slideOut() {
-        body.removeClass('side-menu-visible');
-        overlay.fadeOut();
-        setTimeout(function () {
-            sideMenu.hide();
-            body.removeClass('overflow-hidden');
-        }, 400);
-    }
+  function slideOut() {
+    body.removeClass("side-menu-visible");
+    overlay.fadeOut();
+    setTimeout(function () {
+      sideMenu.hide();
+      body.removeClass("overflow-hidden");
+    }, 400);
+  }
 });
