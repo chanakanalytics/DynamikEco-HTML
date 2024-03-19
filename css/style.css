@@ -21,6 +21,41 @@ body {
   transition: ease-in all 0.3s;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--theme-main);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* For Internet Explorer and Edge */
+/* width */
+body {
+  scrollbar-width: thin;
+}
+
+/* Track */
+body {
+  scrollbar-color: #f1f1f1 #888;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
 /*
 .loader {
     position: fixed;
