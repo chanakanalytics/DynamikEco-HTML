@@ -330,6 +330,7 @@
     -webkit-box-orient: vertical;
   }
   .section-slider {
+    padding-bottom: 70px;
     margin-bottom: 30px;
   }
   .new_arival_product_section {
@@ -344,6 +345,15 @@
   }
   .product_uses_section {
     padding-top: 40px;
+  }
+  .hero_slider_section {
+    margin-bottom: 40px;
+  }
+  .paging.js-paging {
+    padding-bottom: -30px;
+  }
+  .swiper-slide-active .single_latest_product_img {
+    height: 270px;
   }
 }
 

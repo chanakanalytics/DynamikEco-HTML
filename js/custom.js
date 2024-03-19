@@ -90,7 +90,7 @@ const latest_product_sldier = new Swiper(".latest_product_sldier", {
   //     slideShadows: true
   // },
   autoplay: {
-    delay: 2000,
+    delay: 20000,
   },
   pagination: {
     el: ".latest_product_sldier_pagination",

@@ -18,6 +18,7 @@ sans-serif;*/
 body {
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
+  transition: ease-in all 0.3s;
 }
 
 /*
@@ -162,6 +163,68 @@ a:hover {
   height: 100%;
   width: 1px;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.title_wrapper h1 {
+  font-family: var(--monster-font);
+  font-size: 90px;
+  color: transparent;
+  -webkit-text-stroke: 1px #464646;
+  margin-bottom: 0;
+  width: fit-content;
+  position: relative;
+}
+
+.title_wrapper {
+  padding-left: 100px;
+  position: relative;
+}
+
+.title_wrapper::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  height: 2px;
+  width: calc(100px + 15px);
+  background-color: var(--theme-main);
+  transform: translate(0px, -50%);
+}
+
+.title_wrapper h1::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 10px;
+  height: 50px;
+  width: 50px;
+  border: 1px solid var(--theme-main);
+  transform: translate(0px, -50%);
+  border-radius: 50px;
+}
+
+.title_wrapper.bg_green::before {
+  background-color: #fff !important;
+}
+
+.title_wrapper.bg_green h1 {
+  -webkit-text-stroke: 1px #000;
+}
+
+.title_wrapper.bg_green h1::after {
+  border-color: #fff;
+}
+
+.title_wrapper.dark_bg::before {
+  background-color: #fff !important;
+}
+
+.title_wrapper.dark_bg h1::after {
+  border-color: #fff;
+}
+
+.title_wrapper.dark_bg h1 {
+  -webkit-text-stroke: 1px var(--theme-main);
 }
 
 /**************************************************************************/
@@ -587,6 +650,12 @@ body.side-menu-visible #side-menu.side-menu-left {
 
 .thumb:hover .thumb__title {
   color: var(--theme-main);
+  transition: ease-in all 0.3s;
+}
+.thumb:hover .thumb_number {
+  -webkit-text-stroke: 1px var(--theme-main);
+  color: var(--theme-main);
+  transition: ease-in all 0.3s;
 }
 
 .thumb__image {
@@ -598,7 +667,14 @@ body.side-menu-visible #side-menu.side-menu-left {
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: ease-in all 0.3s;
+}
+
+.thumb:hover .thumb__image {
+  box-shadow: 0 10px 20px rgba(52, 216, 19, 0.2);
+  transition: ease-in all 0.3s;
+  transform: rotate(4deg);
 }
 
 .thumb_number {
@@ -610,6 +686,7 @@ body.side-menu-visible #side-menu.side-menu-left {
   -webkit-text-stroke: 1px #7e7e7e;
   line-height: 70px;
   left: 15px;
+  transition: ease-in all 0.3s;
 }
 
 .thumb__title {
@@ -625,66 +702,20 @@ body.side-menu-visible #side-menu.side-menu-left {
   font-weight: 500;
 }
 
-.title_wrapper h1 {
-  font-family: var(--monster-font);
-  font-size: 90px;
-  color: transparent;
-  -webkit-text-stroke: 1px #464646;
-  margin-bottom: 0;
-  width: fit-content;
-  position: relative;
-}
-
-.title_wrapper {
-  padding-left: 100px;
-  position: relative;
-}
-
-.title_wrapper::before {
-  content: "";
+.paging.js-paging {
   position: absolute;
-  left: -15px;
-  top: 50%;
-  height: 2px;
-  width: calc(100px + 15px);
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.paging.js-paging button {
   background-color: var(--theme-main);
-  transform: translate(0px, -50%);
-}
-
-.title_wrapper h1::after {
-  content: "";
-  position: absolute;
-  right: -20px;
-  top: 10px;
-  height: 50px;
-  width: 50px;
-  border: 1px solid var(--theme-main);
-  transform: translate(0px, -50%);
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
   border-radius: 50px;
-}
-
-.title_wrapper.bg_green::before {
-  background-color: #fff !important;
-}
-
-.title_wrapper.bg_green h1 {
-  -webkit-text-stroke: 1px #000;
-}
-
-.title_wrapper.bg_green h1::after {
-  border-color: #fff;
-}
-
-.title_wrapper.dark_bg::before {
-  background-color: #fff !important;
-}
-
-.title_wrapper.dark_bg h1::after {
-  border-color: #fff;
-}
-
-.title_wrapper.dark_bg h1 {
-  -webkit-text-stroke: 1px var(--theme-main);
+  border: none;
 }
 
 .slider__slides {
@@ -936,6 +967,9 @@ span.banner_big_title {
   border-radius: 15px;
   overflow: hidden;
 }
+.single_new_arival_p_img img {
+  border-radius: 15px;
+}
 
 .new_arival_product_cont p {
   font-size: 20px;
@@ -1059,8 +1093,17 @@ span.banner_big_title {
   border: none;
   margin: 15px;
   margin-bottom: 40px;
+  transition: ease-in all 0.3s;
+  min-height: 420px;
+  overflow: hidden;
+  height: 420px;
 }
-
+.product_uses_section .card img {
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 .product_uses_section .card .card-body {
   position: absolute;
   opacity: 0;
@@ -1071,6 +1114,11 @@ span.banner_big_title {
   bottom: 25px;
   left: 50%;
   transform: translate(-50%, 0);
+  transition: ease-in all 0.3s;
+}
+.product_uses_section .card:hover {
+  box-shadow: 20px 40px 50px rgb(0 0 0 / 40%);
+  transition: ease-in all 0.3s;
 }
 
 .product_uses_section .card:hover .card-body {

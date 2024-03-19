@@ -27,7 +27,7 @@
         <div></div>
     </div>
 
-    <div class="cursor">
+    <div class="cursor d-sm-block d-none">
         <div class="cursor__inner">
             <i class="fa-solid fa-angle-left"></i>
             <i class="fa-solid fa-angle-right"></i>
@@ -97,7 +97,8 @@
                 <ul class="d-flex align-items-center nav_cart_area">
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i> <span>Cart Item</span></a></li>
                     <li><a href="#"><i class="fa-regular fa-user"></i> <span>My Account</span></a></li>
-                    <li class="control"><a href="#"><i class="fa-solid fa-magnifying-glass"></i> <span>Search</span></a>
+                    <li class="control"><a href="javascript:void(0)"><i class="fa-solid fa-magnifying-glass"></i>
+                            <span>Search</span></a>
                     </li>
                     <div class='control_area'></div>
                 </ul>
@@ -210,28 +211,6 @@
             <div class="container">
                 <div class="section-slider__body">
                     <div class="slider js-slider">
-
-                        <!-- <div class="slider__paging">
-                            <div class="paging js-paging">
-                                <button type="button" class="paging__prev js-paging-prev">
-                                    <svg width="30" height="18" viewBox="0 0 20 12" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.805.3A1 1 0 005.39.285l-5.091 5a1.003 1.003 0 000 1.428l5.091 5a1 1 0 001.402-1.427L3.446 7.001H19a1 1 0 100-2H3.446l3.346-3.287A1 1 0 006.805.299z"
-                                            fill="currentColor" fill-rule="evenodd" />
-                                    </svg>
-                                </button>
-
-                                <button type="button" class="paging__next js-paging-next">
-                                    <svg width="30" height="18" viewBox="0 0 20 12" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M13.195 11.7a1 1 0 001.415.014l5.091-5a1.003 1.003 0 000-1.428l-5.091-5a1 1 0 00-1.402 1.427l3.346 3.286H1a1 1 0 100 2h15.554l-3.346 3.287a1 1 0 00-.013 1.415z"
-                                            fill="currentColor" fill-rule="evenodd" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div> -->
-
-
                         <div class="slider__clip swiper swiper-container">
                             <div class="slider__slides swiper-wrapper">
                                 <div class="slider__slide swiper-slide">
@@ -297,6 +276,18 @@
                                         <h2 class="thumb__title">Garden Pot</h2>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="slider__paging d-sm-none d-block">
+                            <div class="paging js-paging">
+                                <button type="button" class="paging__prev js-paging-prev">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+
+                                <button type="button" class="paging__next js-paging-next">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
