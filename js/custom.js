@@ -13,6 +13,9 @@ $(".icon-close").click(function () {
     $("body").removeClass("search-active");
 });
 
+
+
+
 const new_arival_slide_top = new Swiper(".new_arival_slide_top", {
     speed: 1000,
     slidesPerView: 2.6,
